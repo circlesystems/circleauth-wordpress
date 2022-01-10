@@ -17,7 +17,7 @@ Go to the GitHub https://github.com/circlesystems/circleauth-wordpress, click on
 ![alt text](docs/images/image1.png) 
 
 
-Once you have your ZIP file, go back to your WordPress wp-admin panel, click on “Plugins” in the sidebar menu, and then on the “Add New” button.
+Once you have your ZIP file, go back to your WordPress wp-admin panel, click on “Plugins” on the sidebar menu, and then on the “Add New” button.
 
 
 ### 3) Upload your plugin archive
