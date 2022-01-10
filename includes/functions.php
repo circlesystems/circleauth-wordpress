@@ -54,6 +54,9 @@ function getOptionValue($opt)
 function getEmailAllowed($eml)
 {
     $domains = domains_emails_list();
+    var_dump(($domains));
+    die();
+
     $email_domain = array_pop(explode('@', $eml));
     $retval = '';
     $especific = '';
@@ -101,7 +104,7 @@ function userLogin($email)
     if (!isset($email)) {
         return;
     }
-    $url = (get_option('circleauth_redirect_page') != '') ? get_option('circleauth_redirect_page') : home_url();
+    $url = (get_option('circleauth_redirect_page') != '') ? get_option('circleauth_redirect_page') : get_home_url();
 
     $user = get_user_by('email', $email);
     if (isset($user)) {
@@ -163,8 +166,9 @@ function logDev($msg)
 function getEmailDomainAllowedRole($eml)
 {
     $domains = domains_emails_list();
+
     if ($domains == '') {
-        $domains = 'All';
+        $domains = json_decode('"role":"subscriber","domains": "All" }');
     }
 
     $email_domain = array_pop(explode('@', $eml));
