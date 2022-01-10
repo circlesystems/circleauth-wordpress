@@ -12,7 +12,7 @@ Go to the GitHub https://github.com/circlesystems/circleauth-wordpress, click on
 ![alt text](docs/images/image20.png)
 
 
-### 2) Go to “Plugins” in your WordPress dashboard
+### 2) Go to “Plugins” on your WordPress dashboard
 
 ![alt text](docs/images/image1.png) 
 
