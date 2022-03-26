@@ -68,7 +68,7 @@ Optionally, you can register a page to which the user will be redirected after l
 
 ![alt text](docs/images/image60.png)
 
-This URL is used when registering the application on Circle Access console. Make sure to copy and paste from wordpress to Circle Access as the ```return url```
+This URL is used when registering the application on Circle Access console. Make sure to copy and paste from wordpress to Circle Access as the ```Login Return Url```
 
 ![alt text](docs/images/image65.png)
 
