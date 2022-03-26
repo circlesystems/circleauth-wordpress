@@ -1,7 +1,7 @@
 # Circle Access
 Circle Access provides Continuous Authentication, Authorization API, Codeless 2FA, Credential-less Authentication , modules and apps to make the user access secure and easy.
 
-# CircleAuth WordPress plugin
+# Circle Access WordPress plugin
 
 ## Installation
 
@@ -68,7 +68,7 @@ Optionally, you can register a page to which the user will be redirected after l
 
 ![alt text](docs/images/image60.png)
 
-This URL is used when registering the application on Circle Access console.
+This URL is used when registering the application on Circle Access console. Make sure to copy and paste from wordpress to Circle Access as the ```return url```
 
 ![alt text](docs/images/image65.png)
 
