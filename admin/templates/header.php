@@ -8,11 +8,11 @@ defined('ABSPATH') || die();
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: black">
         <div class="container">
 
-            <a class="navbar-brand" style="text-decoration: none;" href="../"><img src="<?php echo plugin_dir_url(dirname(__FILE__)).'images/logo.svg'; ?>" alt="Circle Auth" class="logo" style="width:30px;margin-top: -15px;">
-                Circle Auth</a>
+            <a class="navbar-brand" style="text-decoration: none;" href="../"><img src="<?php echo plugin_dir_url(dirname(__FILE__)).'images/circle_logo_only.svg'; ?>" alt="Circle Access" class="logo" style="width:30px;margin-top: -8px;">
+                Circle Access</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> 
 
             <div class="collapse navbar-collapse" id="navbarNav" >
                 <ul class="navbar-nav ml-auto">

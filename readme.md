@@ -1,18 +1,18 @@
-# Circle Auth
-Circle Auth provides Continuous Authentication, Authorization API, Codeless 2FA, Credential-less Authentication , modules and apps to make the user access secure and easy.
+# Circle Access
+Circle Access provides Continuous Authentication, Authorization API, Codeless 2FA, Credential-less Authentication , modules and apps to make the user access secure and easy.
 
-# CircleAuth WordPress plugin
+# Circle Access WordPress plugin
 
 ## Installation
 
 ### 1) Download the zip file
 
-Go to the GitHub https://github.com/circlesystems/circleauth-wordpress, click on the "Code" button and select the "Download ZIP" option.
+Go to the GitHub https://github.com/circlesystems/circleaccess-wordpress, click on the "Code" button and select the "Download ZIP" option.
 
 ![alt text](docs/images/image20.png)
 
 
-### 2) Go to “Plugins” in your WordPress dashboard
+### 2) Go to “Plugins” on your WordPress dashboard
 
 ![alt text](docs/images/image1.png) 
 
@@ -48,10 +48,10 @@ To start using the plugin, some configurations are needed.
 
 ![alt text](docs/images/image45.png)
 
-You can retrieve the keys from the Circle Auth console (https://console.gocircle.ai/).
-In this example, we register WordPress as an application named "WordPress 9000".
-(Our WordPress runs locally on port 9000).
+You can retrieve the keys from the Circle Access console (https://console.gocircle.ai/).
+In this example, we register WordPress as an application named "Circle Access Demo".
  
+
 ![alt text](docs/images/image50.png)
 
  
@@ -64,17 +64,17 @@ In this example, we register WordPress as an application named "WordPress 9000".
 Optionally, you can register a page to which the user will be redirected after login.
 
 
-### 3. Circle Auth callback page
+### 3. Circle Access callback page
 
 ![alt text](docs/images/image60.png)
 
-This URL is used when registering the application on Circle Auth console.
+This URL is used when registering the application on Circle Access console. Make sure to copy and paste from wordpress to Circle Access as the ```Login Return Url```
 
 ![alt text](docs/images/image65.png)
 
 ### 4. Domains and e-mails
 
-Circle Auth can be configured to only accept logins from specific domains or emails.
+Circle Access can be configured to only accept logins from specific domains or emails.
 For example, you can specify that only logins whose email domain is the company's domain are accepted.
 It is also possible to configure by domain or email what role the new user should take in WordPress. This rule is only available for users who are not yet registered with WordPress.
 
@@ -82,7 +82,7 @@ It is also possible to configure by domain or email what role the new user shoul
 
 ### 5. Enable login default page
 
-When this option is enabled, the Circle Auth login button is added to the default WordPress login page.
+When this option is enabled, the Circle Access login button is added to the default WordPress login page.
 
 ![alt text](docs/images/image41.png)
 

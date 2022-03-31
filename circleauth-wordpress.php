@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @version 1.0.0
+ * @version 1.1.0
  */
 /*
-Plugin Name:  Circle Auth
+Plugin Name:  Circle Access
 Plugin URI: https://github.com/circlesystems/circleauth-wordpress/
-Description: Circle Auth Authentication for WordPress
+Description: Circle Access Authentication for WordPress
 Author: Circle Systems
-Version: 1.0.0
+Version: 1.1.0
 Author URI: http://circleauth.gocircle.ai
 */
 
@@ -49,10 +49,10 @@ class CircleAuth
         //call register settings function
         add_action('admin_init', [$this, 'register_circleauth_plugin_settings']);
 
-        //adds the Circle Auth login button to the default login page
+        //adds the Circle Access login button to the default login page
         add_action('login_form', [$this, 'sign_in_with_circleauth'], 10, 1);
 
-        //removes the user from Circle Auth table
+        //removes the user from Circle Access table
         add_action('delete_user', function ($user_id, $blog_id) {
             $this->deleteCircleAuthUser($user_id);
         }, 10, 2);
@@ -60,7 +60,7 @@ class CircleAuth
         //shows messages in the default login page
         add_filter('login_message', [$this, 'loginMessage']);
 
-        //call the routine to create the Circle Auth table on plugin registration
+        //call the routine to create the Circle Access table on plugin registration
         register_activation_hook(__FILE__, [$this, 'createCircleAuthTable']);
 
         //call the routine on plugin uninstall
@@ -101,17 +101,18 @@ class CircleAuth
         if (get_option('circleauth_add_login_btn') == 'on') {
             ?>
       <script>
-         $(document).ready(function() {
+            $(document).ready(function() {
             let obj = $("#loginform").children("p.submit");
             let buttonHtml = '<div  class="circleAuthLoginCont" style="text-align: center;width:100%;color:white;margin-bottom:15px;margin-top:50px">';
             buttonHtml +='<div style="margin-bottom: 18px;color:darkgrey"> OR </div>';
-            buttonHtml +='<button id = "unic-login" class="circleAuth-ui-button" style="line-height:35px;border:none;background-color:black;width:80%" onclick="circleAuthLogin(event)">';
-            buttonHtml +='<img class="unicauth-ui-icon" style="vertical-align: baseline;" alt="" src="<?php echo CIRCLEAUTH_DOMAIN.'files/logo.svg'; ?> "/>';
-            buttonHtml +='<span style="margin-left:15px;font-size: 14px; font-family: Roboto,Helvetica, Arial, sans-serif;">Login with Circle Auth</span>';
-            buttonHtml +='</div>';
+            buttonHtml +='<button id="unic-login" class="circleaccess-button circleaccess-button-light" onclick="circleAuthLogin(event)">';
+            buttonHtml +='<span class="circleaccess-icon-wrapper"><img class="circleaccess-icon" alt="" src="<?php echo CIRCLEAUTH_CONSOLE_URL?>dashboard/img/circle_logo.png"/></span>';
+            buttonHtml +='<span class="circleaccess-text circleaccess-text-long">Login with Circle </span></button>';
+             buttonHtml +='</div>';
+ 
             $(obj).after(buttonHtml);
-        });
-        
+        }); 
+      
          function circleAuthLogin(event){
             event.preventDefault();
             window.location.href= "<?php echo CIRCLEAUTH_DOMAIN.'/login/'.get_option('circleauth_app_key'); ?>";
@@ -168,7 +169,7 @@ class CircleAuth
     public function circleauth_plugin_create_menu()
     {
         //create new top-level menu
-        add_menu_page('Circle Auth Settings', 'Circle Auth', 'administrator', __FILE__, [$this, 'circleauth_plugin_settings_page'], plugins_url('/images/icon.png', __FILE__));
+        add_menu_page('Circle Access Settings', 'Circle Access', 'administrator', __FILE__, [$this, 'circleauth_plugin_settings_page'], plugins_url('/images/icon.png', __FILE__));
     }
 
     public function register_circleauth_plugin_settings()

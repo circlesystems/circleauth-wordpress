@@ -50,9 +50,9 @@ if ($userID && $sessionID && validateReceivedQueryString() && validateUserSessio
     <meta name="author" content="Master Curcio">
     <link rel="icon" href="admin/images/logo128.png" type="image/png"/>
     <link rel="apple-touch-icon" href="admin/images/logo128.png" type="image/png"/>
-    <meta name="description" content="Circle Auth. No more phishing. Secure 2FA. Simple Login">
-    <meta name="keywords" content="Circle Auth, No phishing,Secure 2FA, Simple Login, simple auth, simple login, passwordless login, no username login">
-    <title>Circle Auth</title>
+    <meta name="description" content="Circle Access. No more phishing. Secure 2FA. Simple Login">
+    <meta name="keywords" content="Circle Access, No phishing,Secure 2FA, Simple Login, simple auth, simple login, passwordless login, no username login">
+    <title>Circle Access</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="admin/css/bootstrap.min.css">

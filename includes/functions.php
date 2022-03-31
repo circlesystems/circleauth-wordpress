@@ -251,7 +251,7 @@ function addcircleauthUser($circleauthUserID, $customId)
 
 function redirectEmailDomainNotAllowed($email)
 {
-    $_SESSION['login_msg'] = "<strong>Error:</strong> Your Email (<strong>$email</strong>) or Email Domain is Not Allowed to Log in with Circle Auth";
+    $_SESSION['login_msg'] = "<strong>Error:</strong> Your Email (<strong>$email</strong>) or Email Domain is Not Allowed to Log in with Circle Access";
     $login_url = wp_login_url($redirect_page, true);
 
     wp_redirect($login_url);

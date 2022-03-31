@@ -29,7 +29,7 @@
                value="<?php echo esc_attr(get_option('circleauth_app_key')); ?>" class="regular-text"
                style="width:40em;">
             <p class="description"
-               id="tagline-appkey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'App Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Auth'); ?></p>
+               id="tagline-appkey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'App Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Access'); ?></p>
          </td>
       </tr>
       <tr>
@@ -41,7 +41,7 @@
                value="<?php echo esc_attr(get_option('circleauth_app_read')); ?>"  class="regular-text"
                style="width:40em;">
             <p class="description"
-               id="tagline-readkey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'Read Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Auth'); ?></p>
+               id="tagline-readkey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'Read Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Access'); ?></p>
          </td>
       </tr>
 
@@ -54,7 +54,7 @@
                value="<?php echo esc_attr(get_option('circleauth_app_write')); ?>" class="regular-text"
                style="width:40em;">
             <p class="description"
-               id="tagline-writekey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'Write Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Auth'); ?>
+               id="tagline-writekey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'Write Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Access'); ?>
             </p>
          </td>
       </tr>
@@ -82,12 +82,12 @@
          </td>
       </tr>
       <tr>
-         <th scope="row"><label for="redirect"><?php _e('Circle Auth callback page', 'circleauth-wordpress'); ?>
+         <th scope="row"><label for="redirect"><?php _e('Circle Access callback page', 'circleauth-wordpress'); ?>
              </label>
          </th>
 
          <td>
-            <?php $call_back_page = get_home_url().'/wp-content/plugins/circleauth-wordpress/callback.php'; ?>
+            <?php $call_back_page = get_home_url().'/wp-content/plugins/circleaccess-wordpress-main/callback.php'; ?>
 
             <input name="circleauth_callback_page" readonly type="text" id="callback_page"
                value="<?php echo $call_back_page; ?>"  class="regular-text call_back_input"
@@ -99,13 +99,13 @@
 
                <p class="description"
                   id="tagline-readkey">
-                  <?php printf(__('Callback page to be added %1$s at <a target="_blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), '', CIRCLEAUTH_CONSOLE_URL, 'Circle Auth'); ?>
+                  <?php printf(__('Callback page to be added %1$s at <a target="_blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), '', CIRCLEAUTH_CONSOLE_URL, 'Circle Access'); ?>
                </p>   
           </div>
          </td>
       </tr> 
       <tr>
-         <th scope="row"><label for="domains"><?php _e('Circle Auth can be configured to accept new users from specific domains or emails. You can also set the WordPress role. ', 'domains'); ?></label>
+         <th scope="row"><label for="domains"><?php _e('Circle Access can be configured to accept new users from specific domains or emails. You can also set the WordPress role. ', 'domains'); ?></label>
          </th>
          <td >
             
@@ -130,7 +130,7 @@
           <td>
           <input type="checkbox" class="form-check-input" <?php if (get_option('circleauth_add_login_btn') == 'on') {
     echo 'checked';
-} ?> name="circleauth_add_login_btn" id="add_login_btn"> <?php echo __('Add Circle Auth login to default WordPress login page'); ?>
+} ?> name="circleauth_add_login_btn" id="add_login_btn"> <?php echo __('Add Circle Access login to default WordPress login page'); ?>
  
           </td>
       </tr>
