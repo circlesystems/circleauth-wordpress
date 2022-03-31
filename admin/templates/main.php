@@ -88,7 +88,6 @@
 
          <td>
             <?php $call_back_page = get_home_url().'/wp-content/plugins/circleaccess-wordpress-main/callback.php'; ?>
-
             <input name="circleauth_callback_page" readonly type="text" id="callback_page"
                value="<?php echo $call_back_page; ?>"  class="regular-text call_back_input"
                style="width:37.4em;">
