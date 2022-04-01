@@ -33,12 +33,12 @@ class CircleAuth
 
     private function constants()
     {
-        define('CIRCLEAUTH_VERSION', '1.0');
+        define('CIRCLEAUTH_VERSION', '1.1');
         define('CIRCLEAUTH_PATH', dirname(__FILE__));
         define('CIRCLEAUTH_CONSOLE_URL', 'https://console.gocircle.ai/');
         define('CIRCLEAUTH_LOGIN_URL', 'https://circleauth.gocircle.ai/login/');
         define('CIRCLEAUTH_DOMAIN', 'https://circleauth.gocircle.ai/');
-        define('CIRCLEAUTH_EMAIL_INFO', 'info@circleauth.gocircle.ai');
+        define('CIRCLEAUTH_EMAIL_INFO', 'support@gocircle.ai');
     }
 
     private function init()
@@ -73,27 +73,18 @@ class CircleAuth
     {
         wp_register_style('tagify', plugins_url('admin/css/tagify.css', __FILE__));
         wp_enqueue_style('tagify');
-
-        wp_register_style('bootstrap_5.0.2', plugins_url('admin/css/bootstrap.min.css', __FILE__));
-        wp_enqueue_style('bootstrap_5.0.2');
-
-        wp_register_style('query-confirm', plugins_url('admin/css/jquery-confirm.min.css', __FILE__));
+ 
+        wp_register_style('query-confirm', plugins_url('admin/css/jquery-confirm.css', __FILE__));
         wp_enqueue_style('query-confirm');
 
         wp_register_style('circleButtons', plugins_url('admin/css/unicauth-ui.css', __FILE__));
         wp_enqueue_style('circleButtons');
 
-        wp_register_style('circlePrimer', plugins_url('admin/css/primer.css', __FILE__));
-        wp_enqueue_style('circlePrimer');
-
-        wp_register_style('gitHubCss', plugins_url('admin/css/github.css', __FILE__));
-        wp_enqueue_style('gitHubCss');
-
         wp_register_style('styles', plugins_url('admin/css/style.css', __FILE__));
         wp_enqueue_style('styles');
 
-        wp_register_script('jquery-3.6.0', plugins_url('admin/js/jquery-3.6.0.min.js', __FILE__));
-        wp_enqueue_script('jquery-3.6.0');
+        wp_enqueue_script('jquery');
+
     }
 
     public function sign_in_with_circleauth()
@@ -101,6 +92,8 @@ class CircleAuth
         if (get_option('circleauth_add_login_btn') == 'on') {
             ?>
       <script>
+           var $ = jQuery.bind({});
+
             $(document).ready(function() {
             let obj = $("#loginform").children("p.submit");
             let buttonHtml = '<div  class="circleAuthLoginCont" style="text-align: center;width:100%;color:white;margin-bottom:15px;margin-top:50px">';

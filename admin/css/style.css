@@ -14,17 +14,53 @@
     margin-left: -23px;
  }
 
- .navbar{
-     background-color: black;
+ .clippy{
+  cursor: pointer;
  }
 
-.navbar-nav li {
-     margin-bottom: 0px; 
-}
-.navbar-nav li a {
-    padding-top: 10px; 
+.circleaccess-callback-input{
+    width:37.4em;
+    min-height:39px!important;
 }
 
+.circleacces-nav-link{
+   color: gray;
+   margin-top: 24px;
+   text-decoration: none;
+   position: absolute;
+ }
+
+ .circleaccess-navbar-header{
+    background-color:black;
+    height:70px;
+    width:100%;
+    vertical-align:midle;
+    display:flex;
+    font-family:Nunito Sans;
+ }
+  
+ .circleaccess-copied{
+    display: none; 
+    font-size: 7px;
+    position: absolute;
+    padding-top: 4px;
+    padding-left: 3px;
+    color: green;
+}
+  
+ .circleaccess-nav-link:hover{
+    color: rgb(161, 160, 160);
+
+ }
+
+ .circleacces-input-text{
+    width:40em!important;
+    min-height:39px!important;
+ }
+
+.circleaccess-select{
+    min-height:39px!important;   
+}
 
 .domains_input{
  width: 29em;
@@ -48,12 +84,6 @@
     cursor: pointer!important;
 }
 
-
-
-.wp_roles{
-   line-height: 2.7!important;
-
-}
 
 .tagify {
    box-shadow: 0 0 0 transparent;

@@ -1,3 +1,6 @@
+
+
+
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, 'g'), replace);
 }
@@ -14,7 +17,7 @@ var circleauth_plugin = {
     comboWpRoles: function (role) {
         var values = this.wp_roles;
         var select = document.createElement("select");
-        select.className = "wp_roles";
+        select.className = "wp_roles circleaccess-select";
 
         for (const val of values) {
             var option = document.createElement("option");
@@ -44,6 +47,12 @@ var circleauth_plugin = {
             circleauth_plugin.initialized = 1;
         });
 
+        $(".clippy").on("click",function(){
+            $("#copied").show();
+            setTimeout(function(){
+                $("#copied").hide();
+            },900);
+        })
 
         $(".tags").each(function () {
             tagify = new Tagify(this, {
@@ -64,7 +73,7 @@ var circleauth_plugin = {
             $.confirm({
                 title: 'Confirm!',
                 content: 'Click on "Delete" to confirm the deletion. ',
-                useBootstrap: true,
+                useBootstrap: false,
                 buttons: {
                     delete: function () {
 
@@ -77,6 +86,18 @@ var circleauth_plugin = {
 
 
         });
+
+        var clipboardDemos = new ClipboardJS('[data-clipboard-callback]');
+        clipboardDemos.on('success', function (e) {
+           e.clearSelection();
+           showTooltip(e.trigger, 'Copied!');
+        });
+        clipboardDemos.on('error', function (e) {
+           console.error('Action:', e.action);
+           console.error('Trigger:', e.trigger);
+           showTooltip(e.trigger, fallbackMessage(e.action));
+        });
+     
 
     },
     addTagify: function (elm) {
@@ -205,12 +226,9 @@ function add_listeners(obj) {
 }
 
 $(document).ready(function () {
-
-    //circleauth_plugin.comboWpRoles("sell",'Contributor');
+   
     circleauth_plugin.createInputTable("sell");
     circleauth_plugin.bindEvents();
-
-
 });
 
 

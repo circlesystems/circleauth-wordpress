@@ -26,8 +26,8 @@
          </th>
          <td>
             <input name="circleauth_app_key" type="text" id="appkey"
-               value="<?php echo esc_attr(get_option('circleauth_app_key')); ?>" class="regular-text"
-               style="width:40em;">
+               value="<?php echo esc_attr(get_option('circleauth_app_key')); ?>" class="regular-text circleacces-input-text">
+               
             <p class="description"
                id="tagline-appkey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'App Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Access'); ?></p>
          </td>
@@ -38,8 +38,8 @@
          </th>
          <td>
             <input name="circleauth_app_read" type="text" id="readkey"
-               value="<?php echo esc_attr(get_option('circleauth_app_read')); ?>"  class="regular-text"
-               style="width:40em;">
+               value="<?php echo esc_attr(get_option('circleauth_app_read')); ?>"  class="regular-text circleacces-input-text">
+               
             <p class="description"
                id="tagline-readkey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'Read Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Access'); ?></p>
          </td>
@@ -51,8 +51,8 @@
          </th>
          <td>
             <input name="circleauth_app_write" type="text" id="writekey"
-               value="<?php echo esc_attr(get_option('circleauth_app_write')); ?>" class="regular-text"
-               style="width:40em;">
+               value="<?php echo esc_attr(get_option('circleauth_app_write')); ?>" class="regular-text circleacces-input-text">
+               
             <p class="description"
                id="tagline-writekey"><?php printf(__('Application %1$s available at <a target="blank" href="%2$s">%3$s Console</a>', 'circleauth-wordpress'), 'Write Key', CIRCLEAUTH_CONSOLE_URL, 'Circle Access'); ?>
             </p>
@@ -64,8 +64,7 @@
          </th>
          <td>
             <input name="circleauth_user_roles" type="text" id="user_roles"
-               value="<?php echo esc_attr(get_option('circleauth_user_roles')); ?>" class="regular-text"
-               style="width:40em;">
+               value="<?php echo esc_attr(get_option('circleauth_user_roles')); ?>" class="regular-text circleacces-input-text">
          </td>
       </tr>
  
@@ -75,8 +74,7 @@
          </th>
          <td>
             <input name="circleauth_redirect_page" type="text" id="redirect_page"
-               value="<?php echo get_option('redirect_page') ? esc_attr(get_option('circleauth_redirect_page')) : get_home_url(); ?>"  class="regular-text"
-               style="width:40em;">
+               value="<?php echo get_option('redirect_page') ? esc_attr(get_option('circleauth_redirect_page')) : get_home_url(); ?>"  class="regular-text circleacces-input-text">
             <p class="description"
                id="tagline-readkey"><?php echo __('Page to be redirected after login '); ?></p>
          </td>
@@ -88,12 +86,13 @@
 
          <td>
             <?php $call_back_page = get_home_url().'/wp-content/plugins/circleaccess-wordpress-main/callback.php'; ?>
+
             <input name="circleauth_callback_page" readonly type="text" id="callback_page"
-               value="<?php echo $call_back_page; ?>"  class="regular-text call_back_input"
-               style="width:37.4em;">
+               value="<?php echo $call_back_page; ?>"  class="regular-text circleaccess-callback-input">
                
-               <button class="btn" style="border: none;" type="button" data-toggle="tooltip" title="Copy to Clipboard!" data-clipboard-callback data-clipboard-target="#callback_page">
+               <button class="btn" style="border: none" type="button" data-toggle="tooltip" title="Copy to Clipboard!" data-clipboard-callback data-clipboard-target="#callback_page">
                  <img class="clippy" src="<?php echo plugin_dir_url(dirname(__FILE__)).'images/clippy.svg'; ?>" width="13" alt="Copy to clipboard">
+                 <span id="copied" class="circleaccess-copied" >Copied!</span>
                </button>
 
                <p class="description"
@@ -129,28 +128,12 @@
           <td>
           <input type="checkbox" class="form-check-input" <?php if (get_option('circleauth_add_login_btn') == 'on') {
     echo 'checked';
-} ?> name="circleauth_add_login_btn" id="add_login_btn"> <?php echo __('Add Circle Access login to default WordPress login page'); ?>
+    } ?> name="circleauth_add_login_btn" id="add_login_btn"> <?php echo __('Add Circle Access login to default WordPress login page'); ?>
  
           </td>
       </tr>
    </tbody>
 </table>
-
-
-<script>
-   var clipboardDemos = new ClipboardJS('[data-clipboard-callback]');
-   clipboardDemos.on('success', function (e) {
-      e.clearSelection();
-      showTooltip(e.trigger, 'Copied!');
-   });
-   clipboardDemos.on('error', function (e) {
-      console.error('Action:', e.action);
-      console.error('Trigger:', e.trigger);
-      showTooltip(e.trigger, fallbackMessage(e.action));
-   });
-
-
-</script>
  
 
 <?php submit_button(); ?>

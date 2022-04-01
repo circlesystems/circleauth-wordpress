@@ -49,8 +49,8 @@ To start using the plugin, some configurations are needed.
 ![alt text](docs/images/image45.png)
 
 You can retrieve the keys from the Circle Access console (https://console.gocircle.ai/).
-
 In this example, we register WordPress as an application named "Circle Access Demo".
+ 
 
 ![alt text](docs/images/image50.png)
 
