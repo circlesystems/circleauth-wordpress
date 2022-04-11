@@ -77,7 +77,7 @@ class CircleAuth
         wp_register_style('query-confirm', plugins_url('admin/css/jquery-confirm.css', __FILE__));
         wp_enqueue_style('query-confirm');
 
-        wp_register_style('circleButtons', plugins_url('admin/css/unicauth-ui.css', __FILE__));
+        wp_register_style('circleButtons', plugins_url('admin/css/circleaccess-ui.css', __FILE__));
         wp_enqueue_style('circleButtons');
 
         wp_register_style('styles', plugins_url('admin/css/style.css', __FILE__));
@@ -99,7 +99,7 @@ class CircleAuth
             let buttonHtml = '<div  class="circleAuthLoginCont" style="text-align: center;width:100%;color:white;margin-bottom:15px;margin-top:50px">';
             buttonHtml +='<div style="margin-bottom: 18px;color:darkgrey"> OR </div>';
             buttonHtml +='<button id="unic-login" class="circleaccess-button circleaccess-button-light" onclick="circleAuthLogin(event)">';
-            buttonHtml +='<span class="circleaccess-icon-wrapper"><img class="circleaccess-icon" alt="" src="<?php echo CIRCLEAUTH_CONSOLE_URL?>dashboard/img/circle_logo.png"/></span>';
+            buttonHtml +='<span class="circleaccess-icon-wrapper"><img class="circleaccess-icon-login-btn" alt="" src="<?php echo CIRCLEAUTH_CONSOLE_URL?>dashboard/img/circle_logo.png"/></span>';
             buttonHtml +='<span class="circleaccess-text circleaccess-text-long">Login with Circle </span></button>';
              buttonHtml +='</div>';
  
@@ -123,7 +123,7 @@ class CircleAuth
         $_SESSION['login_msg'] = '';
 
         if ($msg != '') {
-            return "<p class='message'>".$msg.'</p>';
+            return "<p class='circleaccess-message'>".$msg.'</p>';
         }
     }
 
@@ -162,7 +162,7 @@ class CircleAuth
     public function circleauth_plugin_create_menu()
     {
         //create new top-level menu
-        add_menu_page('Circle Access Settings', 'Circle Access', 'administrator', __FILE__, [$this, 'circleauth_plugin_settings_page'], plugins_url('/images/icon.png', __FILE__));
+        add_menu_page('Circle Access Settings', 'Circle Access', 'administrator', __FILE__, [$this, 'circleauth_plugin_settings_page'], plugins_url('/admin/images/circle_logo_19.svg', __FILE__));
     }
 
     public function register_circleauth_plugin_settings()
@@ -187,13 +187,12 @@ class CircleAuth
         <form method="post" action="options.php">
         <?php
             settings_fields('circleauth-plugin-settings-group');
-        do_settings_sections('circleauth-plugin-settings-group');
+            do_settings_sections('circleauth-plugin-settings-group');
 
-        require_once CIRCLEAUTH_PATH.'/api/circleauth.php';
-        require_once CIRCLEAUTH_PATH.'/includes/functions.php';
-        require_once CIRCLEAUTH_PATH.'/admin/templates/subheader.php';
-        require_once CIRCLEAUTH_PATH.'/admin/templates/main.php'; ?>
-
+            require_once CIRCLEAUTH_PATH.'/api/circleauth.php';
+            require_once CIRCLEAUTH_PATH.'/includes/functions.php';
+            require_once CIRCLEAUTH_PATH.'/admin/templates/subheader.php';
+            require_once CIRCLEAUTH_PATH.'/admin/templates/main.php'; ?>
             </form>
         </div>
 

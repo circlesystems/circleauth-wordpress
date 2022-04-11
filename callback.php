@@ -55,7 +55,7 @@ if ($userID && $sessionID && validateReceivedQueryString() && validateUserSessio
     <title>Circle Access</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="admin/css/bootstrap.min.css">
+ 
     <script src="admin/js/jquery.min.js"></script>
     
    <!-- Custom styles for this template -->

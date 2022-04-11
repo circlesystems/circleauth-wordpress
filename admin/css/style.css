@@ -10,13 +10,6 @@
         vertical-align: middle;
     }
 
- header{
-    margin-left: -23px;
- }
-
- .clippy{
-  cursor: pointer;
- }
 
 .circleaccess-callback-input{
     width:37.4em;
@@ -32,12 +25,32 @@
 
  .circleaccess-navbar-header{
     background-color:black;
-    height:70px;
+    height:60px;
     width:100%;
     vertical-align:midle;
     display:flex;
     font-family:Nunito Sans;
  }
+
+ .circleaccess-navbar-header .product{
+    width:68%;
+    display:flex
+ }
+
+ .circleaccess-navbar-header .title{
+    font-size:18px;
+    color:white;
+    font-family:Nunito Sans;
+    margin-top:20px;
+    margin-left:20px;
+ }
+
+ .circleaccess-navbar-header img{
+    padding-left:56px;
+    height:36px;
+    padding-top:12px
+ }
+
   
  .circleaccess-copied{
     display: none; 
@@ -53,6 +66,11 @@
 
  }
 
+ .circleaccess-domains-input{
+     min-width: 356px!important;
+
+ }
+
  .circleacces-input-text{
     width:40em!important;
     min-height:39px!important;
@@ -61,30 +79,16 @@
 .circleaccess-select{
     min-height:39px!important;   
 }
-
-.domains_input{
- width: 29em;
-
-}
-
-.form-table td {
-    margin-bottom: 9px;
-    padding: 5px 4px!important;
-}
-
-.container{
-    margin-left: 200px;
-}
  
-
-.icon-img{
-    margin-right: 5px;
-    width: 14px!important;
-    padding-top: 2px;
-    cursor: pointer!important;
+.circleaccess-icon-login-btn{
+    border: none;
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    width: 22px;
+    margin-left: 37px!important;
 }
-
-
+  
 .tagify {
    box-shadow: 0 0 0 transparent;
    border-radius: 4px;
@@ -92,64 +96,16 @@
    background-color: #fff;
 }
 
- 
-  
-.unicauth-admin-header{
-    color: white;
-    background-color: black;
-    height: 75px;
+.circleaccess-icon-delete{
+    height: 18px!important;
+    cursor: pointer;
+}
    
-    padding-left: 17px;
-    display: flex;
-    margin-left: -20px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 400;
-
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    
-    font-size: 1.25rem!important;
-    line-height: inherit;
-    white-space: nowrap;
-}
-
-.-admin-header-nav{
-    float: right;
-    position: absolute;
-    top: 20px;
-    font-size: 18px;
- }
-
- .op1{
-    right: 15%;
-    color: white;
-}
-
-.op2{
-    right: 7%;
-    color: white;
-}
-
-.unicauth-admin-header a{
-    text-decoration: none;
-    font-size: 1.25rem!important;
-    color: white;
-    
-}
-.unicauth-admin-header a:visited{
-        font-size: 1.25rem!important;
-}
- 
- .description {
+ .circleaccess-description {
    font-size: 12px!important;
 }
  
 .login .error{
     border-left-color:#d63638
 } 
-
-.unicauth-login-wrapper{
-   vertical-align: center;
-   
-}
+ 

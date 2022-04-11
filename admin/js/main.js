@@ -1,5 +1,5 @@
 
-
+var $ = jQuery.noConflict();
 
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, 'g'), replace);
@@ -66,7 +66,7 @@ var circleauth_plugin = {
             });
         });
 
-        $(".icon-img").on("click", function () {
+        $(".circleaccess-icon-delete").on("click", function () {
 
             var obj = this;
 
@@ -90,7 +90,10 @@ var circleauth_plugin = {
         var clipboardDemos = new ClipboardJS('[data-clipboard-callback]');
         clipboardDemos.on('success', function (e) {
            e.clearSelection();
-           showTooltip(e.trigger, 'Copied!');
+           $("#copied").show();
+           setTimeout(function(){
+              $("#copied").hide();
+            },900);
         });
         clipboardDemos.on('error', function (e) {
            console.error('Action:', e.action);
@@ -128,7 +131,7 @@ var circleauth_plugin = {
 
             //add cells
             let domains = replaceAll(this.domain_roles[i].domains, ",", " ");
-            let td1 = $('<td><input class="domains_input tags" type="text" value="' + domains + '">');
+            let td1 = $('<td><input class="circleaccess-domains-input tags" type="text" value="' + domains + '">');
             row.append(td1);
 
             let td2 = $('<td>');
@@ -136,7 +139,7 @@ var circleauth_plugin = {
             td2.append(combo);
             row.append(td2);
 
-            let td3 = $('<td><img class="icon-img" src="' + remove_icon + '" />');
+            let td3 = $('<td><img class="circleaccess-icon-delete" src="' + remove_icon + '" />');
             row.append(td3);
 
             table.append(row);
@@ -148,7 +151,7 @@ var circleauth_plugin = {
         let microtime = (Date.now() % 1000) / 1000;
         let table = $("#domain_roles");
         let row = $('<tr>').addClass('bar');
-        let td1 = $('<td><input id="inp_' + microtime + '" class="domains_input tags" type="text" value="">');
+        let td1 = $('<td><input id="inp_' + microtime + '" class="circleaccess-domains-input tags" type="text" value="">');
         row.append(td1);
 
         let td2 = $('<td>');
@@ -156,7 +159,7 @@ var circleauth_plugin = {
         td2.append(combo);
         row.append(td2);
 
-        let td3 = $('<td><img class="icon-img" src="' + remove_icon + '" />');
+        let td3 = $('<td><img class="circleaccess-icon-delete" src="' + remove_icon + '" />');
         row.append(td3);
         $(table).append(row);
         //add tags
