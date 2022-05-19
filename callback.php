@@ -19,29 +19,35 @@ $type = getRequestParameter('type');
 $customId = getRequestParameter('customID');
 $selectedEmail = getRequestParameter('login');
 
-$email = decodeEmail($customId);
-$userEmail = [];
+$email = decodeEmail(getRequestParameter('customID'));
+ 
+$userEmail = userExists($userID);
 
-if ($userID && $sessionID && validateReceivedQueryString() && validateUserSession($sessionID, $userID)) {
-    $userEmail = userExists($userID);
-
-    if (trim($userEmail[0]) != '') {
-        //check if user is allowed to access
-        if (sizeof($userEmail) === 1 || (!empty($selectedEmail))) {
-            userLogin((!empty($selectedEmail) ? $selectedEmail : $userEmail[0]));
-        }
-    } elseif ((!isset($customId)) || ($customId == '')) {
-        header('location:'.CIRCLEAUTH_CONSOLE_URL.'dashboard/login_email/index?appKey='.$api_appKey);
+if (trim($userEmail[0]) != '') {
+    //check if user is allowed to access
+    if (sizeof($userEmail) === 1 || (!empty($selectedEmail))) {
+        userLogin((!empty($selectedEmail) ? $selectedEmail : $userEmail[0]));
     }
-
-    //add the user
-    $user = addCircleAuthUser($userID, $customId);
-} else {
-    echo __('Authentication error ');
+} elseif ((!isset($customId)) || ($customId == '')) {
+    //get the session data and store it in the session
+    $_SESSION['session_data'] = getSession($_REQUEST['sessionID']);
+    header('location:'.CIRCLEAUTH_CONSOLE_URL.'dashboard/login_email/index?appKey='.$api_appKey);
 }
 
-?>
+// check if it´s the same user 
+$userIDFromRequest = $_REQUEST['userID'];
+$userIDFromSession = $_SESSION['session_data']['data']['userID'];
+$hashedEmails = $_SESSION['session_data']['data']['userHashedEmails'];
 
+if ($userIDFromRequest == $userIDFromSession){
+   //check if the email is valid
+    if (in_array(hash('sha256',$email),$hashedEmails)){
+    $user = addCircleAuthUser($userID, $customId);
+   }
+}
+die("Authentication failed. Please, try again.");
+
+?>
 
 <html lang="en_US">
   <head>
