@@ -175,6 +175,9 @@ class CircleAuth
         register_setting('circleauth-plugin-settings-group', 'circleauth_redirect_page');
         register_setting('circleauth-plugin-settings-group', 'circleauth_callback_page');
         register_setting('circleauth-plugin-settings-group', 'circleauth_user_roles');
+        register_setting('circleauth-plugin-settings-group', 'circleauth_auto_register_new_user');
+        register_setting('circleauth-plugin-settings-group', 'circleauth_redirect_new_user_page');
+         
     }
 
     public function circleauth_plugin_settings_page()

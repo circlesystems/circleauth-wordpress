@@ -77,6 +77,28 @@
          </td>
       </tr>
       <tr>
+         <th scope="row"><label for="redirect"><?php _e('Automatically register new users', 'circleauth-wordpress'); ?>
+         </label>
+         </th>
+         <td>
+            <input name="circleauth_auto_register_new_user" type="checkbox" <?php echo get_option('circleauth_redirect_new_user_page') ? '' : 'checked' ?>  id="circleauth_auto_register" >
+            <p class="circleaccess-description"
+               id="tagline-readkey"><?php echo __('Auto register new user'); ?></p>
+         </td>
+      </tr>
+      <tr>
+         <th scope="row"><label for="redirect"><?php _e('New user redirect page', 'circleauth-wordpress'); ?>
+             </label>
+         </th>
+         <td>
+            
+            <input name="circleauth_redirect_new_user_page" <?php echo get_option('circleauth_redirect_new_user_page') ? '': 'disabled' ?> type="text" id="redirect_new_user_page"
+               value="<?php echo get_option('circleauth_redirect_new_user_page') ? esc_attr(get_option('circleauth_redirect_new_user_page')) : '' ?>"  class="regular-text circleacces-input-text">
+            <p class="circleaccess-description"
+               id="tagline-readkey"><?php echo __('New user redirect page. (if the user does not exist)'); ?></p>
+         </td>
+      </tr>
+      <tr>
          <th scope="row"><label for="redirect"><?php _e('Circle Access callback page', 'circleauth-wordpress'); ?>
              </label>
          </th>
@@ -134,3 +156,14 @@
  
 
 <?php submit_button(); ?>
+
+<script>
+   $('#circleauth_auto_register').change(function() {
+      if ($(this).is(':checked')) {
+         $('#redirect_new_user_page').prop('disabled', true);
+      } else {
+         $('#redirect_new_user_page').prop('disabled', false);
+         $('#redirect_new_user_page').focus();
+      }
+   });
+</script>

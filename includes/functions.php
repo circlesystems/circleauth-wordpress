@@ -21,6 +21,29 @@ function getEmailLoginButtons($arrEmails)
 
     return $returnVal;
 }
+ 
+ function getWPUserEmail($userHashedEmails)
+{
+    //check if there is at least one email hash
+    if (count($userHashedEmails) == 0) {
+        echo 'No user emails';
+        return null;
+    }
+    global $wpdb;
+    $arrEmails = [];
+    $tableName = $wpdb->prefix.'users';
+
+    $hashedEmails = implode("','", $userHashedEmails);
+    $sql = "select ID,user_email from $tableName where SHA2(user_email,256) in ('".$hashedEmails."')";
+    $row = $wpdb->get_results($sql);
+    if (count($row) >= 1) {
+        return $row[0]->user_email;
+    } else {
+        return null;
+    }
+   
+}
+
 
 function domains_role_list()
 {

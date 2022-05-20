@@ -18,35 +18,54 @@ $sessionID = getRequestParameter('sessionID');
 $type = getRequestParameter('type');
 $customId = getRequestParameter('customID');
 $selectedEmail = getRequestParameter('login');
-
 $email = decodeEmail(getRequestParameter('customID'));
- 
-$userEmail = userExists($userID);
+$auto_register = get_option('circleauth_auto_register_new_user');
+$new_user_redirect_page = get_option('circleauth_redirect_new_user_page') ? get_option('circleauth_redirect_new_user_page') : get_home_url();
 
-if (trim($userEmail[0]) != '') {
-    //check if user is allowed to access
-    if (sizeof($userEmail) === 1 || (!empty($selectedEmail))) {
-        userLogin((!empty($selectedEmail) ? $selectedEmail : $userEmail[0]));
+// save session with userID and sessionID
+$_SESSION['userID'] = $userID;
+$_SESSION['sessionID'] = $sessionID;
+$_SESSION['type'] = $type;
+
+// check if the auto register is not enabled and if the user is already registered
+if (!$auto_register){
+  $sessionData = getSession($_REQUEST['sessionID']);
+  $hashedEmails = $sessionData['data']['userHashedEmails'];
+
+  $emailFromWP = getWPUserEmail($hashedEmails);
+  if ($emailFromWP){
+    userLogin($emailFromWP);
+  }else{
+    header('location:'.$new_user_redirect_page);
+  }
+}else{
+  $userEmail = userExists($userID);
+
+  if (trim($userEmail[0]) != '') {
+      //check if user is allowed to access
+      if (sizeof($userEmail) === 1 || (!empty($selectedEmail))) {
+          userLogin((!empty($selectedEmail) ? $selectedEmail : $userEmail[0]));
+      }
+  } elseif ((!isset($customId)) || ($customId == '')) {
+      //get the session data and store it in the session
+      $_SESSION['session_data'] = getSession($_REQUEST['sessionID']); 
+      header('location:'.CIRCLEAUTH_CONSOLE_URL.'dashboard/login_email/index?appKey='.$api_appKey);
+  }
+
+  // check if it´s the same user 
+  $userIDFromRequest = $_REQUEST['userID'];
+  $userIDFromSession = $_SESSION['session_data']['data']['userID'];
+
+  if ($userIDFromRequest == $userIDFromSession){
+    //check if the email is valid
+      $hashedEmails = $_SESSION['session_data']['data']['userHashedEmails'];
+      if (in_array(hash('sha256',$email),$hashedEmails)){
+      $user = addCircleAuthUser($userID, $customId);
     }
-} elseif ((!isset($customId)) || ($customId == '')) {
-    //get the session data and store it in the session
-    $_SESSION['session_data'] = getSession($_REQUEST['sessionID']);
-    header('location:'.CIRCLEAUTH_CONSOLE_URL.'dashboard/login_email/index?appKey='.$api_appKey);
-}
-
-// check if it´s the same user 
-$userIDFromRequest = $_REQUEST['userID'];
-$userIDFromSession = $_SESSION['session_data']['data']['userID'];
-$hashedEmails = $_SESSION['session_data']['data']['userHashedEmails'];
-
-if ($userIDFromRequest == $userIDFromSession){
-   //check if the email is valid
-    if (in_array(hash('sha256',$email),$hashedEmails)){
-    $user = addCircleAuthUser($userID, $customId);
-   }
-}
-die("Authentication failed. Please, try again.");
-
+  }
+  die("Authentication failed. Please, try again.");
+} 
+ 
 ?>
 
 <html lang="en_US">
