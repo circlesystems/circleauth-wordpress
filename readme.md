@@ -85,5 +85,3 @@ It is also possible to configure by domain or email what role the new user shoul
 When this option is enabled, the Circle Access login button is added to the default WordPress login page.
 
 ![alt text](docs/images/image41.png)
-
-
