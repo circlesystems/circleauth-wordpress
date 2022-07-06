@@ -71,7 +71,7 @@
          </th>
          <td>
             <input name="circleauth_redirect_page" type="text" id="redirect_page"
-               value="<?php echo get_option('redirect_page') ? esc_attr(get_option('circleauth_redirect_page')) : get_home_url(); ?>"  class="regular-text circleacces-input-text">
+               value="<?php echo get_option('circleauth_redirect_page') ? esc_attr(get_option('circleauth_redirect_page')) : get_home_url(); ?>"  class="regular-text circleacces-input-text">
             <p class="circleaccess-description"
                id="tagline-readkey"><?php echo __('Page to be redirected after login '); ?></p>
          </td>
