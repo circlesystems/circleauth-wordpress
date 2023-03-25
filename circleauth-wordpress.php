@@ -36,9 +36,9 @@ class CircleAuth
         define('CIRCLEAUTH_VERSION', '1.3.1');
         define('CIRCLEAUTH_PATH', dirname(__FILE__));
         define('CIRCLEAUTH_CONSOLE_URL', 'https://console.gocircle.ai/');
-        define('CIRCLEAUTH_LOGIN_URL', 'https://circleauth.gocircle.ai/login/');
-        define('CIRCLEAUTH_DOMAIN', 'https://circleauth.gocircle.ai/');
-        define('CIRCLEAUTH_EMAIL_INFO', 'support@gocircle.ai');
+        define('CIRCLEAUTH_LOGIN_URL', 'https://circleaccess.circlesecurity.ai/login/');
+        define('CIRCLEAUTH_DOMAIN', 'https://circleaccess.circlesecurity.ai/');
+        define('CIRCLEAUTH_EMAIL_INFO', 'support@circlesecurity.ai');
     }
 
     private function init()
