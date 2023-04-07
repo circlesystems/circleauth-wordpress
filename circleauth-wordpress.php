@@ -9,7 +9,7 @@ Plugin URI: https://github.com/circlesystems/circleauth-wordpress/
 Description: Circle Access Authentication for WordPress
 Author: Circle Systems
 Version: 1.3.2
-Author URI: http://circleauth.gocircle.ai
+Author URI: http://circleaccess.circlesecurity.ai
 */
 
 class CircleAuth
@@ -35,7 +35,7 @@ class CircleAuth
     {
         define('CIRCLEAUTH_VERSION', '1.3.2');
         define('CIRCLEAUTH_PATH', dirname(__FILE__));
-        define('CIRCLEAUTH_CONSOLE_URL', 'https://console.gocircle.ai/');
+        define('CIRCLEAUTH_CONSOLE_URL', 'https://console.circlesecurity.ai/');
         define('CIRCLEAUTH_LOGIN_URL', 'https://circleaccess.circlesecurity.ai/login/');
         define('CIRCLEAUTH_DOMAIN', 'https://circleaccess.circlesecurity.ai/');
         define('CIRCLEAUTH_EMAIL_INFO', 'support@circlesecurity.ai');
