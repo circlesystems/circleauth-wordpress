@@ -99,7 +99,7 @@ class CircleAuth
             let buttonHtml = '<div  class="circleAuthLoginCont" style="text-align: center;width:100%;color:white;margin-bottom:15px;margin-top:50px">';
             buttonHtml +='<div style="margin-bottom: 18px;color:darkgrey"> OR </div>';
             buttonHtml +='<button id="unic-login" class="circleaccess-button circleaccess-button-light" onclick="circleAuthLogin(event)">';
-            buttonHtml +='<span class="circleaccess-icon-wrapper"><img class="circleaccess-icon-login-btn" alt="" src="<?php echo CIRCLEAUTH_CONSOLE_URL?>dashboard/img/circle_logo.png"/></span>';
+            buttonHtml +='<span class="circleaccess-icon-wrapper"><img class="circleaccess-icon-login-btn" alt="" src="<?php echo plugin_dir_url(__FILE__).'/admin/images/circle_logo_only.svg'; ?>"/></span>';
             buttonHtml +='<span class="circleaccess-text circleaccess-text-long">Login with Circle </span></button>';
              buttonHtml +='</div>';
  
@@ -119,11 +119,14 @@ class CircleAuth
 
     public function loginMessage()
     {
-        $msg = $_SESSION['login_msg'];
+        $msg = '';
+        if(isset($_SESSION['login_msg'])){
+            $msg = $_SESSION['login_msg'];
+        }
         $_SESSION['login_msg'] = '';
 
         if ($msg != '') {
-            return "<p class='circleaccess-message'>".$msg.'</p>';
+            return "<p class='message'>".$msg.'</p>';
         }
     }
 

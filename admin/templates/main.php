@@ -1,5 +1,6 @@
 <?php
- include_once '../includes/functions.php';
+ $path = realpath(__DIR__ . '/../../includes/functions.php');
+ require_once($path);
  define('REMOVE_ICON', plugin_dir_url(dirname(__FILE__)).'/images/remove.svg');
 ?> 
  
