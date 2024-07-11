@@ -33,10 +33,10 @@ class CircleAuth
 
     private function constants()
     {
-        define('CIRCLEAUTH_VERSION', '1.3.2');
+        define('CIRCLEAUTH_VERSION', '1.3.3');
         define('CIRCLEAUTH_PATH', dirname(__FILE__));
-        define('CIRCLEAUTH_CONSOLE_URL', 'https://console.gocircle.ai/');
-        define('CIRCLEAUTH_LOGIN_URL', 'https://circleaccess.circlesecurity.ai/login/');
+        define('CIRCLEAUTH_CONSOLE_URL', 'https://console.circlesecurity.ai/');
+        define('CIRCLEAUTH_LOGIN_URL', 'https://circleaccess.circlesecurity.ai/lite/');
         define('CIRCLEAUTH_DOMAIN', 'https://circleaccess.circlesecurity.ai/');
         define('CIRCLEAUTH_EMAIL_INFO', 'support@circlesecurity.ai');
     }
@@ -108,7 +108,7 @@ class CircleAuth
       
          function circleAuthLogin(event){
             event.preventDefault();
-            window.location.href= "<?php echo CIRCLEAUTH_DOMAIN.'/login/'.get_option('circleauth_app_key'); ?>";
+            window.location.href= "<?php echo CIRCLEAUTH_DOMAIN.'/lite/'.get_option('circleauth_app_key'); ?>";
          }
        </script>
        <?php
